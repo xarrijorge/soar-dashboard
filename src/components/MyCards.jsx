@@ -7,8 +7,8 @@ const dummyCards = [
       number: '3778123412341234',
       validThru: '12/22',
       cardHolder: 'Eddy Cusuma',
-      color: 'dark', // Optional color prop
-      currency: '€'  // Optional currency prop
+      color: 'dark',
+      currency: '€'
     },
     {
       id: 2,
@@ -16,8 +16,8 @@ const dummyCards = [
       number: '4321432143214321',
       validThru: '10/25',
       cardHolder: 'Eddy Cusuma',
-      color: 'light', // Different color prop
-      currency: '$'   // Different currency prop
+      color: 'light',
+      currency: '$'
     },
   ]
 
@@ -29,14 +29,15 @@ export default function MyCards() {
         <button className="text-sm text-[#5F6AC4] hover:underline">See All</button>
       </div>
 
-      <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2">
+      <div className="grid grid-cols-2 gap-4 w-full">
         {dummyCards.map(card => (
-          <CardItem 
-            key={card.id} 
-            card={card}
-            color={card.color}
-            currency={card.currency}
-          />
+          <div key={card.id} className="w-full min-w-[380px]">
+            <CardItem 
+              card={card}
+              color={card.color}
+              currency={card.currency}
+            />
+          </div>
         ))}
       </div>
     </section>

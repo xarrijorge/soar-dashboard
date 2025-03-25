@@ -31,10 +31,11 @@ export default function CardItem({
 
     return (
         <div className={`
-            min-w-[340px] w-[340px] h-56 rounded-2xl 
+            w-full min-w-[380px] h-64 rounded-2xl 
             ${bgVariants[color]} 
             ${textVariants[color]}
-            shadow-lg relative flex flex-col justify-between overflow-hidden border border-gray-100`}> {/* Header */}
+            shadow-lg relative flex flex-col justify-between overflow-hidden border border-gray-100`}> 
+            {/* Header */}
             <div className="flex justify-between items-start p-5">
                 <div>
                     <div className="text-xs opacity-70">Balance</div>
