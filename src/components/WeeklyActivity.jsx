@@ -20,8 +20,8 @@ const data = {
             borderRadius: 6,
             borderSkipped: false,
             barThickness: 10,
-            categoryPercentage: 0.2, // wider spacing between groups
-            barPercentage: 0.8       // narrower bars (space between within group)
+            barPercentage: 0.6,
+            categoryPercentage: 0.2
         },
         {
             label: 'Withdraw',
@@ -29,10 +29,9 @@ const data = {
             backgroundColor: '#2E2E2E',
             borderRadius: 6,
             borderSkipped: false,
-            margin: 20,
             barThickness: 10,
-            categoryPercentage: 0.2,
-            barPercentage: 0.8
+            barPercentage: 0.6,
+            categoryPercentage: 0.2
         },
     ],
 }
@@ -44,12 +43,12 @@ const options = {
         legend: {
             position: 'top',
             align: 'end',
-            margin: 20,
             labels: {
                 color: '#2E3360',
                 boxWidth: 10,
                 font: { size: 13, weight: '500' },
                 usePointStyle: true,
+                padding: 20,
             },
         },
     },
@@ -60,16 +59,28 @@ const options = {
                 color: '#9DA2C6',
                 font: { size: 12 },
             },
+            border: { display: false },
         },
         y: {
             beginAtZero: true,
-            grid: { color: '#F0F0F0' },
+            grid: { 
+                color: '#F0F0F0',
+                drawBorder: false,
+            },
             ticks: {
                 color: '#9DA2C6',
                 font: { size: 12 },
+                stepSize: 100,
             },
+            border: { display: false },
         },
     },
+    layout: {
+        padding: {
+            left: 10,
+            right: 10,
+        }
+    }
 }
 
 export default function WeeklyActivity() {
