@@ -29,9 +29,12 @@ export default function MyCards() {
         <button className="text-sm text-[#5F6AC4] hover:underline">See All</button>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full">
         {dummyCards.map(card => (
-          <div key={card.id} className="w-full min-w-[380px]">
+          <div 
+            key={card.id} 
+            className="w-full"
+          >
             <CardItem 
               card={card}
               color={card.color}
