@@ -1,4 +1,7 @@
-import { FaBars, FaBell, FaCog, FaSearch } from 'react-icons/fa'
+import { HiMiniBars3 } from "react-icons/hi2";
+import { VscBellDot } from "react-icons/vsc"
+import { HiOutlineCog6Tooth } from "react-icons/hi2";
+import { IoSearchOutline } from "react-icons/io5";
 
 export default function Topbar({ toggleSidebar }) {
   return (
@@ -11,7 +14,7 @@ export default function Topbar({ toggleSidebar }) {
           onClick={toggleSidebar}
           aria-label="Toggle Sidebar"
         >
-          <FaBars size={22} />
+          <HiMiniBars3 size={22} />
         </button>
 
         {/* Page Title - Hidden on mobile, shown on desktop */}
@@ -28,7 +31,7 @@ export default function Topbar({ toggleSidebar }) {
       {/* Center Search Bar - Hidden on mobile, shown on md and up */}
       <div className="hidden md:flex items-center flex-1 justify-center max-w-xl mx-4">
         <div className="flex items-center bg-[#f4f5fa] rounded-full px-4 py-2 w-full">
-          <FaSearch className="text-[#9da2c6] mr-2 text-sm" />
+          <IoSearchOutline className="text-[#9da2c6] mr-2 text-sm" />
           <input
             type="text"
             placeholder="Search for something"
@@ -41,16 +44,16 @@ export default function Topbar({ toggleSidebar }) {
       <div className="flex items-center gap-3 sm:gap-4">
         {/* Mobile Search Icon */}
         <button className="md:hidden text-[#2E3360]">
-          <FaSearch size={18} />
+          <IoSearchOutline size={22} />
         </button>
 
         {/* Desktop Icons */}
         <div className="hidden md:flex items-center gap-3">
           <button className="w-10 h-10 rounded-full bg-[#f4f5fa] flex items-center justify-center text-[#5f6ac4] hover:bg-[#e6e7f3]">
-            <FaCog size={16} />
+            <HiOutlineCog6Tooth size={22} />
           </button>
           <button className="w-10 h-10 rounded-full bg-[#f4f5fa] flex items-center justify-center text-[#5f6ac4] hover:bg-[#e6e7f3]">
-            <FaBell size={16} />
+            <VscBellDot size={22} />
           </button>
         </div>
 
