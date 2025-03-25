@@ -1,6 +1,7 @@
 import Layout from '../layout/Layout'
 import MyCards from '../components/MyCards'
 import RecentTransactions from '../components/RecentTransactions'
+import WeeklyActivity from '../components/WeeklyActivity'
 
 export default function Dashboard() {
   return (
@@ -11,6 +12,9 @@ export default function Dashboard() {
         </div>
         <div className="md:col-span-1">
           <RecentTransactions />
+        </div>
+        <div className="md:col-span-2">
+          <WeeklyActivity />
         </div>
       </div>
     </Layout>
