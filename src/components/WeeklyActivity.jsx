@@ -86,7 +86,6 @@ const options = {
 export default function WeeklyActivity() {
     return (
         <section className="bg-white rounded-2xl shadow-md p-4 h-80">
-            <h2 className="text-lg font-semibold text-[#2E3360] mb-4">Weekly Activity</h2>
             <div className="h-[calc(100%-50px)]">
                 <Bar data={data} options={options} />
             </div>

@@ -34,7 +34,6 @@ import {
   export default function ExpenseStatistics() {
     return (
       <section className="bg-white rounded-2xl shadow-md p-4 h-80">
-        <h2 className="text-lg font-semibold text-[#2E3360] mb-4">Expense Statistics</h2>
   
         <div className="flex h-[calc(100%-50px)] items-center justify-center gap-6">
           {/* Pie chart */}
