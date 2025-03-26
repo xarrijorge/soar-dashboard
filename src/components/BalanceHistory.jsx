@@ -1,3 +1,4 @@
+import useMainStore from '../store/mainStore'
 import {
     Chart as ChartJS,
     LineElement,
@@ -11,12 +12,14 @@ import { Line } from 'react-chartjs-2'
 
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Filler, Tooltip)
 
+const balance = useMainStore((state) => state.balanceHistory)
+
 const data = {
     labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
     datasets: [
         {
             label: 'Balance',
-            data: [200, 300, 450, 700, 400, 600, 500],
+            data: balance.map((item) => item.amount),
             fill: true,
             tension: 0.4,
             borderColor: '#3366FF',

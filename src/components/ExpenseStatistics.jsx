@@ -1,3 +1,4 @@
+import useMainStore from '../store/mainStore'
 import {
     Chart as ChartJS,
     ArcElement,
@@ -9,11 +10,11 @@ import {
   ChartJS.register(ArcElement, Tooltip, Legend)
   
   const data = {
-    labels: ['Entertainment', 'Bill Expense', 'Investment', 'Others'],
+    labels: labels,
     datasets: [
       {
         label: 'Expenses',
-        data: [30, 15, 20, 35],
+        data: values,
         backgroundColor: ['#3366FF', '#F2994A', '#00B8D9', '#2E2E2E'],
         borderWidth: 0,
         offset: 15,
@@ -30,6 +31,20 @@ import {
       },
     },
   }
+
+  const transactions = useMainStore((state) => state.transactions)
+
+  const categoryTotals = transactions
+  .filter(t => t.amount < 0) // only expenses
+  .reduce((acc, t) => {
+    const cat = t.category || 'Uncategorized'
+    acc[cat] = (acc[cat] || 0) + Math.abs(t.amount)
+    return acc
+  }, {})
+
+  const labels = Object.keys(categoryTotals)
+  const values = Object.values(categoryTotals)
+
   
   export default function ExpenseStatistics() {
     return (

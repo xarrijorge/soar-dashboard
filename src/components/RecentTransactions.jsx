@@ -1,12 +1,9 @@
 import TransactionItem from './TransactionItem'
+import useMainStore from '../store/mainStore'
 
-const dummyTransactions = [
-    { id: 1, type: 'paypal', description: 'Deposit Paypal', date: '25 Jan 2021', amount: 2500 },
-    { id: 2, type: 'card', description: 'Transfer to Card', date: '28 Jan 2021', amount: -850 },
-    { id: 3, type: 'cash', description: 'Cash from Jemi Wilson', date: '21 Jan 2021', amount: 5400 },
-]
 
 export default function RecentTransactions() {
+    const transactions = useMainStore(state => state.transactions)
     return (
         <section className="mb-8 h-[300px]"> {/* Fixed height to match cards */}
             <div className="flex justify-between items-center mb-4">
@@ -16,7 +13,7 @@ export default function RecentTransactions() {
 
             <div className="bg-white rounded-xl shadow-md p-4 h-[calc(100%-50px)] overflow-auto">
                 <div className="space-y-2">
-                    {dummyTransactions.map(tx => (
+                    {transactions.map(tx => (
                         <TransactionItem key={tx.id} tx={tx} />
                     ))}
                 </div>

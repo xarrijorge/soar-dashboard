@@ -1,28 +1,10 @@
 import React from 'react'
 import CardItem from './CardItem'
+import useMainStore from '../store/mainStore'
 
-const cards = [
-  {
-    id: 1,
-    number: '3778123412341234',
-    balance: 5756,
-    cardHolder: 'Eddy Cusuma',
-    validThru: '12/22',
-    currency: '€',
-    color: 'dark'
-  },
-  {
-    id: 2,
-    number: '4321432143214321',
-    balance: 3200,
-    cardHolder: 'Eddy Cusuma',
-    validThru: '10/25',
-    currency: '$',
-    color: 'light'
-  }
-]
 
 export default function MyCards() {
+const cards = useMainStore(state => state.cards)
   return (
     <section className="mb-8">
       <div className="flex items-center justify-between mb-4">

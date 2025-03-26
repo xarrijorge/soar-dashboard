@@ -7,15 +7,18 @@ import {
     Legend,
 } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
+import useMainStore from '../store/mainStore'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend)
+
+const weeklyActivity = useMainStore((state) => state.weeklyActivity)
 
 const data = {
     labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
     datasets: [
         {
             label: 'Deposit',
-            data: [250, 130, 260, 370, 230, 240, 330],
+            data: weeklyActivity.deposits,
             backgroundColor: '#3366FF',
             borderRadius: 6,
             borderSkipped: false,
@@ -25,7 +28,7 @@ const data = {
         },
         {
             label: 'Withdraw',
-            data: [480, 350, 320, 480, 140, 380, 390],
+            data: weeklyActivity.withdrawals,
             backgroundColor: '#2E2E2E',
             borderRadius: 6,
             borderSkipped: false,

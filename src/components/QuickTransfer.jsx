@@ -1,29 +1,12 @@
 import React from 'react'
 import Transfers from './Transfers'
 import NewTransfer from './NewTransfer'
+import useMainStore from '../store/mainStore'
 
-const recentTransfers = [
-  {
-    id: 1,
-    name: 'Livia Bator',
-    role: 'CEO',
-    image: 'https://randomuser.me/api/portraits/women/1.jpg',
-  },
-  {
-    id: 2,
-    name: 'Randy Press',
-    role: 'Director',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    id: 3,
-    name: 'Workman',
-    role: 'Designer',
-    image: 'https://randomuser.me/api/portraits/men/16.jpg',
-  },
-]
+
 
 export default function QuickTransfer() {
+  const recentTransfers = useMainStore(state => state.recentTransfers)
     return (
         <div className="bg-white rounded-2xl shadow-md p-4 w-full h-60 flex flex-col justify-evenly">
             {/* Scrollable Transfers */}
