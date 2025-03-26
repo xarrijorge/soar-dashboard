@@ -31,7 +31,7 @@ export default function CardItem({
 
     return (
         <div className={`
-            w-full min-w-[380px] h-64 rounded-2xl 
+            w-[320px] sm:w-[320px] h-64 rounded-2xl md:w-full
             ${bgVariants[color]} 
             ${textVariants[color]}
             shadow-lg relative flex flex-col justify-between overflow-hidden border border-gray-100`}> 
