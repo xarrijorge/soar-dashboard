@@ -86,23 +86,25 @@ export default function ProfileForm() {
       {/* Password */}
       <div>
         <label className="block font-medium mb-1 text-[#2E3360] dark:text-white">Password</label>
-        <div className="relative">
+        <div className="relative group">
           <input
             disabled
             name="password"
-            placeholder="Enter new password (optional)"
-            className={`w-full border rounded-lg p-2.5 pr-10 bg-gray-50 dark:bg-[#2a2d3d] text-[#2E3360] dark:text-white placeholder:text-[#9DA2C6] dark:placeholder:text-gray-400 ${errors.password ? 'border-red-500' : ''}`}
+            placeholder="Update in Security tab"
+            className={`cursor-not-allowed w-full border rounded-lg p-2.5 pr-10 bg-gray-50 dark:bg-[#2a2d3d] text-[#2E3360] dark:text-white placeholder:text-[#9DA2C6] dark:placeholder:text-gray-400 cursor-not-allowed ${errors.password ? 'border-red-500' : ''}`}
           />
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute top-2.5 right-3 text-[#9DA2C6] dark:text-gray-400"
-          >
+          <div className="absolute top-2.5 right-3 text-[#9DA2C6] dark:text-gray-400 cursor-not-allowed">
             {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </button>
+          </div>
+
+          {/* Tooltip */}
+          <div className="absolute top-full left-0 mt-2 w-max bg-gray-800 text-white text-xs rounded px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+            Please use the Security tab to update your password
+          </div>
         </div>
         {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
       </div>
+
 
       {/* Date of Birth */}
       <div>
