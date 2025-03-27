@@ -17,48 +17,44 @@ export default function Dashboard() {
     fetchInitialData()
   }, [fetchInitialData])
 
-  if (isLoading) {
-    return (
-      <Layout title="Dashboard">
-        <div className="text-center py-20 text-[#2E3360] dark:text-white">Loading dashboard data...</div>
-      </Layout>
-    )
-  }
-
-  if (error) {
-    return (
-      <Layout title="Dashboard">
-        <div className="text-center py-20 text-red-500">{error}</div>
-      </Layout>
-    )
-  }
-
   return (
     <Layout>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="md:col-span-2">
-          <MyCards />
+      {/* Spinner Overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-20 flex items-center justify-center">
+          <div className="w-12 h-12 border-4 border-[#5F6AC4] border-t-transparent rounded-full animate-spin"/>
+          <h6 className='p-4'>Loading Data ...</h6>
         </div>
-        <div className="md:col-span-1">
-          <RecentTransactions />
+      )}
+
+      {error ? (
+        <div className="text-center py-20 text-red-500">{error}</div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="md:col-span-2">
+            <MyCards />
+          </div>
+          <div className="md:col-span-1">
+            <RecentTransactions />
+          </div>
+          <div className="md:col-span-2">
+            <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Weekly Activity</h2>
+            <WeeklyActivity />
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Expense Statistics</h2>
+            <ExpenseStatistics className="md:col-span-1" />
+          </div>
+          <div className='md:col-span-1'>
+            <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Quick Transfer</h2>
+            <QuickTransfer />
+          </div>
+          <div className="md:col-span-2">
+            <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Balance History</h2>
+            <BalanceHistory />
+          </div>
         </div>
-        <div className="md:col-span-2">
-          <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Weekly Activity</h2>
-          <WeeklyActivity />
-        </div>
-        <div>
-          <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Expense Statistics</h2>
-          <ExpenseStatistics className="md:col-span-1" />
-        </div>
-        <div className='md:col-span-1'>
-          <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Quick Transfer</h2>
-          <QuickTransfer />
-        </div>
-        <div className="md:col-span-2">
-          <h2 className="text-lg font-semibold text-[#2E3360] dark:text-white mb-4">Balance History</h2>
-          <BalanceHistory />
-        </div>
-      </div>
+      )}
     </Layout>
   )
 }
