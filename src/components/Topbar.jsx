@@ -3,7 +3,7 @@ import { VscBellDot } from "react-icons/vsc"
 import { HiOutlineCog6Tooth } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
 
-export default function Topbar({ toggleSidebar }) {
+export default function Topbar({ toggleSidebar, title="Overview" }) {
   return (
     <header className="h-16 px-4 sm:px-6 flex items-center justify-between bg-white shadow w-full">
       {/* Left Section - Mobile Hamburger & Page Title */}
@@ -19,7 +19,7 @@ export default function Topbar({ toggleSidebar }) {
 
         {/* Page Title - Hidden on mobile, shown on desktop */}
         <h1 className="hidden md:block text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#2E3360]">
-          Overview
+          {title}
         </h1>
       </div>
 
