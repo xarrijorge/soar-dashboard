@@ -3,7 +3,7 @@ import useMainStore from '../store/mainStore'
 
 
 export default function RecentTransactions() {
-    const transactions = useMainStore(state => state.transactions)
+    const transactions = useMainStore(state => state.transactions).slice(0, 3)
     return (
         <section className="mb-8 h-[300px]"> {/* Fixed height to match cards */}
             <div className="flex justify-between items-center mb-4">
