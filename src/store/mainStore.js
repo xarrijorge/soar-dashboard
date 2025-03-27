@@ -33,12 +33,13 @@ const useMainStore = create((set, get) => ({
     country: 'USA',
     notificationsEnabled: true,
     theme: 'light'
-  }, 
+  },
 
   // DASHBOARD DATA
   cards: [
     {
       id: 1,
+      accountID: 1,
       number: '3778123412341234',
       balance: 5756,
       cardHolder: 'Eddy Cusuma',
@@ -48,12 +49,31 @@ const useMainStore = create((set, get) => ({
     },
     {
       id: 2,
+      accountID: 2,
       number: '4321432143214321',
       balance: 3200,
       cardHolder: 'Eddy Cusuma',
       validThru: '10/25',
       currency: '$',
       color: 'light'
+    }
+  ],
+  accounts: [
+    {
+      id: 1,
+      name: 'Personal Account',
+      type: 'Checking',
+      currency: 'Euro',
+      balance: 8200,
+      accountNumber: '621384920134'
+    },
+    {
+      id: 2,
+      name: 'Savings Account',
+      type: 'Savings',
+      currency: 'USD',
+      balance: 15300,
+      accountNumber: '894720193842'
     }
   ],
 
@@ -83,6 +103,11 @@ const useMainStore = create((set, get) => ({
   transactions, // imported from /data/transactions.js
 
   // SETTINGS ACTIONS
+  addCard: (newCard) =>
+    set((state) => ({
+      cards: [...state.cards, newCard]
+    })),
+
   updateUser: (updates) => set((state) => ({
     user: { ...state.user, ...updates }
   })),
@@ -170,7 +195,7 @@ const useMainStore = create((set, get) => ({
     set((state) => {
       // Only update fields that have changed and are valid
       const updatedUser = { ...state.user };
-      
+
       Object.keys(formData).forEach(key => {
         if (formData[key] && formData[key] !== state.user[key]) {
           updatedUser[key] = formData[key];
