@@ -35,7 +35,69 @@ const useMainStore = create((set, get) => ({
     theme: 'light'
   }, 
 
-  // EXISTING CODE REMAINS THE SAME...
+  // DASHBOARD DATA
+  cards: [
+    {
+      id: 1,
+      number: '3778123412341234',
+      balance: 5756,
+      cardHolder: 'Eddy Cusuma',
+      validThru: '12/22',
+      currency: '€',
+      color: 'dark'
+    },
+    {
+      id: 2,
+      number: '4321432143214321',
+      balance: 3200,
+      cardHolder: 'Eddy Cusuma',
+      validThru: '10/25',
+      currency: '$',
+      color: 'light'
+    }
+  ],
+
+  recentTransfers: [
+    {
+      id: 1,
+      name: 'Livia Bator',
+      role: 'CEO',
+      image: 'https://randomuser.me/api/portraits/women/1.jpg',
+    },
+    {
+      id: 2,
+      name: 'Randy Press',
+      role: 'Director',
+      image: 'https://randomuser.me/api/portraits/men/32.jpg',
+    },
+    {
+      id: 3,
+      name: 'Workman',
+      role: 'Designer',
+      image: 'https://randomuser.me/api/portraits/men/16.jpg',
+    },
+  ],
+
+  balanceHistory,
+  weeklyActivity,
+  transactions, // imported from /data/transactions.js
+
+  // SETTINGS ACTIONS
+  updateUser: (updates) => set((state) => ({
+    user: { ...state.user, ...updates }
+  })),
+
+  toggleNotifications: () => set((state) => ({
+    user: { ...state.user, notificationsEnabled: !state.user.notificationsEnabled }
+  })),
+
+  setTheme: (theme) => set((state) => ({
+    user: { ...state.user, theme }
+  })),
+
+  updatePassword: (newPassword) => set((state) => ({
+    user: { ...state.user, password: newPassword }
+  })),
 
   // VALIDATION METHODS
   validateUserData: (formData) => {

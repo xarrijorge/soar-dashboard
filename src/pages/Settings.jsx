@@ -10,19 +10,18 @@ export default function Settings() {
   const [activeTab, setActiveTab] = useState(tabs[0])
 
   return (
-    <Layout>
+    <Layout title="Settings">
       <div >
-        <h1 className="text-2xl font-semibold text-[#2E3360] mb-6">Settings</h1>
-
         {/* Tabs */}
-        <div className="flex gap-6 mb-6 border-b">
-          {tabs.map(tab => (
+        <div className="flex gap-4 mb-6 border-b">
+          {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`pb-2 text-sm font-medium ${activeTab === tab
+              className={`pb-3 px-4 text-base font-medium rounded-t-lg transition-all
+        ${activeTab === tab
                   ? 'text-[#2E3360] border-b-2 border-[#2E3360]'
-                  : 'text-[#9DA2C6]'
+                  : 'text-[#9DA2C6] hover:text-[#2E3360]'
                 }`}
             >
               {tab}

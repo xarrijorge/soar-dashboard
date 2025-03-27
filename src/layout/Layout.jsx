@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import Topbar from '../components/Topbar'
 
-export default function Layout({ children }) {
+export default function Layout({ children, title='Overview' }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -30,7 +30,7 @@ export default function Layout({ children }) {
 
       {/* Main Content Area */}
       <div className="flex flex-col flex-1 w-full overflow-hidden">
-        <Topbar toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
+        <Topbar toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} title={title} />
         <main className="flex-1 p-4 sm:p-6 overflow-auto bg-gray-100">
           {children}
         </main>

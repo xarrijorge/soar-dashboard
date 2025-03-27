@@ -128,7 +128,7 @@ export default function ProfileForm() {
       <div className="md:col-span-2 flex justify-end mt-4">
         <button
           type="submit"
-          className="bg-[#2E2E2E] text-white py-3 px-20 rounded-xl hover:bg-black transition-all"
+          className="bg-[#2E2E2E] md:w-1/4 w-full text-white py-3 px-20 rounded-xl hover:bg-black transition-all"
         >
           Save
         </button>
