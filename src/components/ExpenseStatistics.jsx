@@ -48,7 +48,7 @@ export default function ExpenseStatistics() {
     <section className="bg-white rounded-2xl shadow-md p-4 h-80">
       <div className="flex h-full items-center justify-center gap-4">
         {/* Bigger Pie chart */}
-        <div className="w-[250px] sm:w-[300px] md:w-[350px]">
+        <div className="w-[200px] sm:w-[200px] md:w-[200px]">
           <Pie data={data} options={options} />
         </div>
         {/* Smaller, more compact legend */}
