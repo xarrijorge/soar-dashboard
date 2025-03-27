@@ -28,8 +28,7 @@ export default function ProfileForm() {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-    
-    // Clear previous error for this field when user starts typing
+
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev }
@@ -42,20 +41,13 @@ export default function ProfileForm() {
   const handleSubmit = (e) => {
     e.preventDefault()
     const validationErrors = validateUserData(formData)
-    
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors)
     } else {
-      // Clear errors if validation passes
       setErrors({})
-      
-      // Save changes
       saveUserChanges(formData)
-      
-      // Optional: Reset password field after save
       setFormData(prev => ({ ...prev, password: '' }))
-      
-      // Success feedback
       alert('Profile updated successfully!')
     }
   }
@@ -76,13 +68,16 @@ export default function ProfileForm() {
         { label: 'Country', name: 'country' },
       ].map(({ label, name, type = 'text' }) => (
         <div key={name}>
-          <label className="block text-[#2E3360] font-medium mb-1">{label}</label>
+          <label className="block font-medium mb-1 text-[#2E3360] dark:text-white">
+            {label}
+          </label>
           <input
             name={name}
             type={type}
             value={formData[name]}
             onChange={handleChange}
-            className={`w-full border rounded-lg p-2.5 text-[#2E3360] bg-gray-50 ${errors[name] ? 'border-red-500' : ''}`}
+            placeholder={user?.[name] || ''}
+            className={`w-full border rounded-lg p-2.5 bg-gray-50 dark:bg-[#2a2d3d] text-[#2E3360] dark:text-white placeholder:text-[#9DA2C6] dark:placeholder:text-gray-400 ${errors[name] ? 'border-red-500' : ''}`}
           />
           {errors[name] && <p className="text-red-500 text-xs mt-1">{errors[name]}</p>}
         </div>
@@ -90,20 +85,18 @@ export default function ProfileForm() {
 
       {/* Password */}
       <div>
-        <label className="block text-[#2E3360] font-medium mb-1">Password</label>
+        <label className="block font-medium mb-1 text-[#2E3360] dark:text-white">Password</label>
         <div className="relative">
           <input
+            disabled
             name="password"
-            type={showPassword ? 'text' : 'password'}
-            value={formData.password}
-            onChange={handleChange}
             placeholder="Enter new password (optional)"
-            className={`w-full border rounded-lg p-2.5 text-[#2E3360] bg-gray-50 pr-10 ${errors.password ? 'border-red-500' : ''}`}
+            className={`w-full border rounded-lg p-2.5 pr-10 bg-gray-50 dark:bg-[#2a2d3d] text-[#2E3360] dark:text-white placeholder:text-[#9DA2C6] dark:placeholder:text-gray-400 ${errors.password ? 'border-red-500' : ''}`}
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute top-2.5 right-3 text-[#9DA2C6]"
+            className="absolute top-2.5 right-3 text-[#9DA2C6] dark:text-gray-400"
           >
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
@@ -113,22 +106,22 @@ export default function ProfileForm() {
 
       {/* Date of Birth */}
       <div>
-        <label className="block text-[#2E3360] font-medium mb-1">Date of Birth</label>
+        <label className="block font-medium mb-1 text-[#2E3360] dark:text-white">Date of Birth</label>
         <input
           name="dob"
           type="date"
           value={formData.dob}
           onChange={handleChange}
-          className={`w-full border rounded-lg p-2.5 text-[#2E3360] bg-gray-50 ${errors.dob ? 'border-red-500' : ''}`}
+          className={`w-full border rounded-lg p-2.5 bg-gray-50 dark:bg-[#2a2d3d] text-[#2E3360] dark:text-white ${errors.dob ? 'border-red-500' : ''}`}
         />
         {errors.dob && <p className="text-red-500 text-xs mt-1">{errors.dob}</p>}
       </div>
 
-      {/* Submit */}
+      {/* Submit Button */}
       <div className="md:col-span-2 flex justify-end mt-4">
         <button
           type="submit"
-          className="bg-[#2E2E2E] md:w-1/4 w-full text-white py-3 px-20 rounded-xl hover:bg-black transition-all"
+          className="bg-[#2E2E2E] hover:bg-black transition-all text-white font-medium py-3 px-10 rounded-xl w-full md:w-1/3"
         >
           Save
         </button>

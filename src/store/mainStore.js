@@ -95,6 +95,13 @@ const useMainStore = create((set, get) => ({
     user: { ...state.user, theme }
   })),
 
+  toggleTheme: () => set((state) => {
+    const newTheme = state.user.theme === 'dark' ? 'light' : 'dark'
+    return {
+      user: { ...state.user, theme: newTheme }
+    }
+  }),
+
   updatePassword: (newPassword) => set((state) => ({
     user: { ...state.user, password: newPassword }
   })),
