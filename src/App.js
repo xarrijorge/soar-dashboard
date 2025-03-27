@@ -3,6 +3,7 @@ import Dashboard from './pages/Dashboard';
 import Settings from './pages/Settings';
 import Transactions from './pages/Transactions';
 import Cards from './pages/CreditCards';
+import Accounts from './pages/Accounts';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/transactions" element={<Transactions/>} />
         <Route path="/credit-cards" element={<Cards/>}/>
-        <Route path="/accounts" element={<h1>Accounts</h1>} />
+        <Route path="/accounts" element={<Accounts/>} />
       </Routes>
     </Router>
   );
