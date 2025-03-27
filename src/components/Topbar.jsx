@@ -10,7 +10,9 @@ export default function Topbar({ toggleSidebar, title = "Overview" }) {
 
   return (
     <header className="relative h-auto md:h-16 px-4 sm:px-6 flex flex-col bg-white dark:bg-[#1e2131] shadow w-full">
+      {/* Top Section */}
       <div className="flex items-center justify-between py-4">
+        {/* Left: Hamburger & Title */}
         <div className="flex items-center space-x-4">
           <button className="md:hidden text-[#2E3360] dark:text-white" onClick={toggleSidebar}>
             <HiMiniBars3 size={22} />
@@ -20,22 +22,27 @@ export default function Topbar({ toggleSidebar, title = "Overview" }) {
           </h1>
         </div>
 
-        <div className="md:hidden flex flex-1 justify-center items-center space-x-3">
-          <h1 className="text-2xl font-semibold text-[#2E3360] dark:text-white text-center">{title}</h1>
+        {/* Center: Mobile Title + Avatar */}
+        <div className="flex md:hidden flex-1 items-center justify-between gap-3">
+          <div></div>
+          <h1 className="text-2xl font-semibold text-[#2E3360] dark:text-white text-center">
+            {title}
+          </h1>
           <img
             src={user?.avatar}
             alt="User avatar"
-            className="w-10 h-10 rounded-full border object-cover"
+            className="w-10 h-10 rounded-full border object-cover justify-self-end"
           />
         </div>
 
+        {/* Right: Desktop Controls */}
         <div className="hidden md:flex items-center space-x-4">
-          <div className="flex items-center bg-[#F4F5FA] dark:bg-[#2A2B3D] rounded-full p-2.5">
+          <div className="flex items-center bg-[#F4F5FA] dark:bg-[#2A2B3D] rounded-full p-2.5 flex-grow">
             <IoSearchOutline size={22} color="#9DA2C6" />
             <input
               type="text"
               placeholder="Search"
-              className="bg-transparent outline-none text-sm text-[#2E3360] dark:text-white placeholder:text-[#9DA2C6]"
+              className="bg-transparent outline-none text-sm text-[#2E3360] dark:text-white placeholder:text-[#9DA2C6] w-full ml-2"
             />
           </div>
           <button className="w-10 h-10 rounded-full bg-[#F4F5FA] dark:bg-[#2A2B3D] text-[#5F6AC4] hover:bg-[#E6E7F3] flex items-center justify-center">
@@ -44,11 +51,13 @@ export default function Topbar({ toggleSidebar, title = "Overview" }) {
           <button className="w-10 h-10 rounded-full bg-[#F4F5FA] dark:bg-[#2A2B3D] text-[#5F6AC4] hover:bg-[#E6E7F3] flex items-center justify-center">
             <VscBellDot size={22} />
           </button>
-          <img
-            src={user?.avatar}
-            alt="User avatar"
-            className="w-10 h-10 rounded-full border object-cover"
-          />
+          <div className="ml-auto">
+            <img
+              src={user?.avatar}
+              alt="User avatar"
+              className="w-10 h-10 rounded-full border object-cover"
+            />
+          </div>
         </div>
       </div>
 
