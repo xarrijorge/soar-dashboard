@@ -7,7 +7,7 @@ A modern, fully responsive financial dashboard built with React and Tailwind CSS
 ---
 
 ## Dashboard & Mobile Screenshot
-<img src="./src/assets/screenshot.png" alt="Soar dashboard screenshot desktop view" width="800"/>  <img src="./src/assets/mobilescreenshot.png" alt="Soar dashboard screenshot Mobile view" height="450"/>
+<img src="./src/assets/screenshot.png" alt="Soar dashboard screenshot desktop view" width="500"/>  <img src="./src/assets/mobilescreenshot.png" alt="Soar dashboard screenshot Mobile view" height="300"/>
 
 ---
 
